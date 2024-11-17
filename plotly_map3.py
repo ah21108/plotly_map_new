@@ -69,7 +69,7 @@ Dash app
 '''
 
 # Can be passed as argument to application, automatically determined, etc.
-offline = True
+offline = False
 
 app = Dash()
 

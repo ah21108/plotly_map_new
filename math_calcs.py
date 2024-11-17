@@ -2,8 +2,10 @@
 
 '''
 Distance
-This uses the ‘haversine’ formula to calculate the great-circle distance between two points – that is, the shortest distance over the earth’s surface – 
-giving an ‘as-the-crow-flies’ distance between the points (ignoring any hills they fly over, of course!).
+This uses the ‘haversine’ formula to calculate the great-circle 
+distance between two points – that is, the shortest distance over 
+the earth’s surface – giving an ‘as-the-crow-flies’ distance 
+between the points (ignoring any hills they fly over, of course!).
 
 Haversine
 formula:	a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
@@ -24,16 +26,16 @@ const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
 const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
 const d = R * c; // in metres
-
 '''
 from math import radians, cos, sin, asin, sqrt
-
 def haversine(lon1, lat1, lon2, lat2):
     '''
     Calculate the great circle distance in kilometers between two points 
     on the earth (specified in decimal degrees).
-    Taken from https://stackoverflow.com/questions/4913349/haversine-formula-in-python-bearing-and-distance-between-two-gps-points
-    Verified against https://www.omnicalculator.com/math/great-circle to within 0.1 km across random values pos and neg lat/long.
+    Taken from https://stackoverflow.com/questions/4913349/haversine
+    -formula-in-python-bearing-and-distance-between-two-gps-points
+    Verified against https://www.omnicalculator.com/math/great-circle 
+    to within 0.1 km across random values pos and neg lat/long.
 
     inputs:
     ----------
@@ -49,7 +51,6 @@ def haversine(lon1, lat1, lon2, lat2):
     '''
     # convert decimal degrees to radians 
     lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
-
     # haversine formula 
     dlon = lon2 - lon1 
     dlat = lat2 - lat1 
