@@ -51,33 +51,33 @@ fig.update_layout(
     width=800, 
     height=800,
     showlegend = False,
-    geo = dict(
-        showland = True,
-        showcountries = True,
-        showocean = True,
-        countrywidth = 0.5,
-        landcolor = 'rgb(230, 145, 56)',
-        lakecolor = 'rgb(0, 255, 255)',
-        oceancolor = 'rgb(0, 255, 255)',
-        projection = dict(
-            type = 'orthographic',
-            rotation = dict(
-                lon = -50,
-                lat = 40,
-                roll = 0
-            )
-        ),
-        lonaxis = dict(
-            showgrid = True,
-            gridcolor = 'rgb(102, 102, 102)',
-            gridwidth = 0.5
-        ),
-        lataxis = dict(
-            showgrid = True,
-            gridcolor = 'rgb(102, 102, 102)',
-            gridwidth = 0.5
-        )
-    )
+    geo = {
+        "showland" : True,
+        "showcountries": True,
+        "showocean": True,
+        "countrywidth": 0.5,
+        "landcolor": 'rgb(230, 145, 56)',
+        "lakecolor": 'rgb(0, 255, 255)',
+        "oceancolor": 'rgb(0, 255, 255)',
+        "projection": {
+            "type": 'orthographic',
+            "rotation": {
+                "lon": -50,
+                "lat": 40,
+                "roll": 0
+            }
+        },
+        "lonaxis": {
+            "showgrid" : True,
+            "gridcolor" :'rgb(102, 102, 102)',
+            "gridwidth": 0.5
+        },
+        "lataxis": {
+            "showgrid": True,
+            "gridcolor": 'rgb(102, 102, 102)',
+            "gridwidth": 0.5
+        }
+    }
 )
 gr = dcc.Graph(figure=fig, config=plotlyConfig,)
 app.layout = html.Div([ 
