@@ -13,7 +13,7 @@ import pandas as pd
 # from plotly.Offline import plot
 from dash import Dash, dcc, html, dash_table
 
-portnumber = 8050
+Portnumber = 8050
 
 # Can be passed as argument to application, automatically determined, etc.
 Offline = True
@@ -25,15 +25,9 @@ app.scripts.config.serve_locally = Offline
 app.css.config.serve_locally = Offline
 app.get_asset_url = '/assets'
 plotlyConfig = {'topojsonURL':'assets/topojson/'} if Offline else {}
-
-
-
 df2 = pd.read_csv('assets/airports.csv')
 large_airports = df2[df2['type']=='large_airport']
-
-
 fig = go.Figure()
-
 fig.add_trace(go.Scattergeo(
     lon = large_airports['longitude_deg'],
     lat = large_airports['latitude_deg'],
@@ -52,8 +46,6 @@ fig.add_trace(go.Scattergeo(
             color = 'rgba(68, 68, 68, 0)'
         )    
     )))
-
-
 fig.update_layout(
     title_text = 'Major Airports and ICAO Identifiers',
     width=800, 
@@ -87,9 +79,7 @@ fig.update_layout(
         )
     )
 )
-
 gr = dcc.Graph(figure=fig, config=plotlyConfig,)
-
 app.layout = html.Div([ 
     gr,
     dash_table.DataTable(data=large_airports.to_dict('records'), 
@@ -97,6 +87,5 @@ app.layout = html.Div([
                          style_cell={'textAlign': 'left', 'font_size': '8px'})
     ])
 
-
 if __name__ == '__main__':
-    app.run(debug=False, port=portnumber)
+    app.run(debug=False, port=Portnumber)
