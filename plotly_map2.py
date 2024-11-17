@@ -10,21 +10,21 @@ Using hard-copy json and csv files for proof of concept for closed areas.
 # breakpoint()
 import plotly.graph_objects as go
 import pandas as pd
-# from plotly.offline import plot
+# from plotly.Offline import plot
 from dash import Dash, dcc, html, dash_table
 
 portnumber = 8050
 
 # Can be passed as argument to application, automatically determined, etc.
-offline = True
+Offline = True
 
 app = Dash()
 
-serve_locally = offline
-app.scripts.config.serve_locally = offline
-app.css.config.serve_locally = offline
+serve_locally = Offline
+app.scripts.config.serve_locally = Offline
+app.css.config.serve_locally = Offline
 app.get_asset_url = '/assets'
-plotlyConfig = {'topojsonURL':'assets/topojson/'} if offline else {}
+plotlyConfig = {'topojsonURL':'assets/topojson/'} if Offline else {}
 
 
 

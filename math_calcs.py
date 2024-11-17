@@ -49,7 +49,7 @@ def haversine(lon1, lat1, lon2, lat2):
     distance between point 1 and point 2 in km.
 
     '''
-    # convert decimal degrees to radians 
+    
     lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
     # haversine formula 
     dlon = lon2 - lon1 
@@ -59,10 +59,9 @@ def haversine(lon1, lat1, lon2, lat2):
     r = 6371 # Radius of earth in kilometers. Use 3956 for miles. Determines return value units.
     return c * r
 
-
-r = 6371000  #earth's radius; meters
-lat1, long1 = (45,-70)
-lat2, long2 = (-45,45)
-
-dist = haversine(long1, lat1, long2, lat2)
-print(dist)
+if __name__ =='__main__':
+    r = 6371000  #earth's radius; meters
+    lat1, long1 = (45,-70)
+    lat2, long2 = (-45,45)
+    dist = haversine(long1, lat1, long2, lat2)
+    print(dist)
