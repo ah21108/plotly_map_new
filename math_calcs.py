@@ -11,7 +11,8 @@ Haversine
 formula:	a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
 c = 2 ⋅ atan2( √a, √(1−a) )
 d = R ⋅ c
-where	φ is latitude, λ is longitude, R is earth’s radius (mean radius = 6,371km);
+where	φ is latitude, λ is longitude, 
+R is earth’s radius (mean radius = 6,371km);
 note that angles need to be in radians to pass to trig functions!
 JavaScript:	
 const R = 6371e3; // metres
@@ -49,19 +50,16 @@ def haversine(lon1, lat1, lon2, lat2):
     distance between point 1 and point 2 in km.
 
     '''
-    
     lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
-    # haversine formula 
-    dlon = lon2 - lon1 
-    dlat = lat2 - lat1 
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
     a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
-    c = 2 * asin(sqrt(a)) 
-    r = 6371 # Radius of earth in kilometers. Use 3956 for miles. Determines return value units.
-    return c * r
+    c = 2 * asin(sqrt(a))
+    radius = 6371 # Radius of earth in kilometers. Use 3956 for miles
+    return c * radius
 
 if __name__ =='__main__':
-    r = 6371000  #earth's radius; meters
-    lat1, long1 = (45,-70)
-    lat2, long2 = (-45,45)
-    dist = haversine(long1, lat1, long2, lat2)
+    LAT_1, LONG_1 = (45,-70)
+    LAT_2, LONG_2 = (-45,45)
+    dist = haversine(LONG_1, LAT_1, LONG_2, LAT_2)
     print(dist)
