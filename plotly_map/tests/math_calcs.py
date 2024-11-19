@@ -59,7 +59,7 @@ def haversine(lon1, lat1, lon2, lat2):
     return c * radius
 
 if __name__ =='__main__':
-    LAT_1, LONG_1 = (45,-70)
-    LAT_2, LONG_2 = (-45,45)
+    LAT_1, LONG_1 = (0,0)
+    LAT_2, LONG_2 = (45,45)
     dist = haversine(LONG_1, LAT_1, LONG_2, LAT_2)
     print(dist)
