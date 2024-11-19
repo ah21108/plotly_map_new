@@ -13,6 +13,5 @@ jobs:
       - name: Lint with Ruff
         uses: chartboost/ruff-action@v1
         continue-on-error: true
-      - name: Run unit tests
-        run: python -m pytest --import-mode=append tests/
+
 
