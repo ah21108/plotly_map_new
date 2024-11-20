@@ -13,5 +13,14 @@ jobs:
       - name: Lint with Ruff
         uses: chartboost/ruff-action@v1
         continue-on-error: true
+      - name: Run pytest
+        uses: pavelzw/pytest-action@v2
+        with:
+          verbose: true
+          emoji: true
+          job-summary: true
+          custom-arguments: '-q'
+          click-to-expand: true
+          report-title: 'Test Report'
 
 
