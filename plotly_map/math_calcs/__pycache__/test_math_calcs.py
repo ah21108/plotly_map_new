@@ -1,4 +1,4 @@
-from plotly_map.math_calcs.math_calcs import haversine
+from math_calcs import haversine
 
 def test_haversine():
     assert round(haversine(0,0,45,45),1) == 6671.7
