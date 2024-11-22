@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 import pandas as pd
 # from plotly.OFFLINE import plot
 from dash import Dash, dcc, html, dash_table, Input, Output
-from plotly_map.tests.math_calcs import haversine
+from helpers.math_calcs import haversine
 
 PORTNUMBER = 8050
 # Can be passed as argument to application, automatically determined, etc.
@@ -24,7 +24,7 @@ app.css.config.serve_locally = OFFLINE
 app.get_asset_url = '/assets'
 plotlyConfig = {'topojsonURL':'assets/topojson/'} if OFFLINE else {}
 selected_columns=['type','airport_name','latitude_deg','longitude_deg','iso_country']
-df2 = pd.read_csv('assets/airports.csv', usecols=selected_columns)
+df2 = pd.read_csv('plotly_map/assets/airports.csv', usecols=selected_columns)
 df2['gc_distance'] = df2.apply(lambda x: haversine(x['longitude_deg'],x['latitude_deg'], 45, 45), axis=1)
 color_map = {
             'balloonport'   :'red',
